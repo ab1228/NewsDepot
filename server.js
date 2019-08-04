@@ -12,8 +12,8 @@ var cheerio = require("cheerio");
 var app = express();
 
 // Database configuration
-var databaseUrl = "scraper";
-var collections = ["scrapedData"];
+var databaseUrl = "";
+var collections = [""];
 
 // Hook mongojs configuration to the db variable
 var db = process.env.mongo_db;
