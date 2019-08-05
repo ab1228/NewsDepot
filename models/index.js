@@ -1,4 +1,4 @@
-// Exporting an object containing all of our models
+// EXPORTING OBJECT CONTAINIG ALL OUR MODELS
 
 module.exports = {
     Note: require("./Note"),

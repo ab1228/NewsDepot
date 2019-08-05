@@ -1,6 +1,6 @@
 
 
-// Dependencies
+// DEPENDDENCIES
 require('dotenv').config()
 var express = require("express");
 // var mongojs = require("mongojs");
@@ -10,11 +10,11 @@ var cheerio = require("cheerio");
 var exphbs = require('express-handlebars');
 var mongoose = require("mongoose");
 
-// Initialize Express
+// INTIALIZE EXPRESS
 var app = express();
 
 // mongoose.connect("mongodb://localhost/populatedb", { useNewUrlParser: true });
-var db = process.env.MONGO_URI || "mongodb://localhost/newsdepot";
+var db = process.env.MONGO_URI || "mongodb://localhost/mongoHeadlines";
 mongoose.connect(db, function (error) {
     if (error) {
         console.log('error');
@@ -22,7 +22,7 @@ mongoose.connect(db, function (error) {
         console.log('connection successful')
     }
 });
-// Main route 
+// MAIN ROUTE
 app.get("/", function (req, res) {
     res.render("index");
 });
@@ -49,7 +49,7 @@ app.get("/", function (req, res) {
 // / --- HANDLEBARS ----/ /
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-// // Route 2
+// // ROUTE 2
 // // =======
 // // server will scrape data from the site and save it to MongoDB.
 // app.get("/scrape", function (req, res) {
@@ -69,6 +69,7 @@ app.set('view engine', 'handlebars');
 //     });
 // });
 
+// LISTENER
 app.listen(3050, function () {
     console.log("App running on port 3050!");
 });
