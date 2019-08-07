@@ -3,36 +3,35 @@
 // DEPENDDENCIES
 require('dotenv').config()
 var express = require("express");
-// var mongojs = require("mongojs");
-// Require axios and cheerio. makes the scraping possible
-var axios = require("axios");
-var cheerio = require("cheerio");
+// var logger = require("morgan");
 var exphbs = require('express-handlebars');
 var mongoose = require("mongoose");
+
+mongoose.connect("", { useNewUrlParser: true });
 
 // INTIALIZE EXPRESS
 var app = express();
 
-// mongoose.connect("mongodb://localhost/populatedb", { useNewUrlParser: true });
-var db = process.env.MONGO_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(db, function (error) {
-    if (error) {
-        console.log('error');
-    } else {
-        console.log('connection successful')
-    }
-});
-// MAIN ROUTE
-app.get("/", function (req, res) {
-    res.render("index");
-});
+// STATIC FOLDER
+app.use(express.static("public"));
+
+// app.use(logger("dev"));
+//MIDDELWARE
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
 // / --- HANDLEBARS ----/ /
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
+// ROUTES
+var routes = require('./controllers/Newsdepot');
+app.use(routes)
+
 
 
 // LISTENER
-app.listen(3050, function () {
-    console.log("App running on port 3050!");
+app.listen(4000, function () {
+    console.log("App running on port 4000!");
 });
