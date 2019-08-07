@@ -7,7 +7,7 @@ var express = require("express");
 var exphbs = require('express-handlebars');
 var mongoose = require("mongoose");
 
-mongoose.connect("", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/headlines", { useNewUrlParser: true });
 
 // INTIALIZE EXPRESS
 var app = express();

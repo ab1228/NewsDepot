@@ -6,7 +6,7 @@ var cheerio = require("cheerio");
 
 
 // REQUIRING MODELS
-var db = require('../models/Index');
+var db = require('../models');
 
 // MAIN ROUTE
 router.get("/", function (req, res) {
@@ -82,7 +82,7 @@ router.get('/clear', function (req, res) {
       res.json(err);
     });
 });
-// DELETING AND ARTICLE BY ID
+// DELETING AN ARTICLE BY ID
 router.post('/articles/delete/:id', function (req, res) {
   db.Article.findOneAndUpdate(
     { _id: req.params.id },

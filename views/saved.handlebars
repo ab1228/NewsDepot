@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    {{#each articles}}
+    <div class="card my-3">
+        <div class="card-header bg-primary montse text-white">
+            <div class="row">
+
+                <a href="{{this.link}}" target="_blank" class="text-white mr-auto p-2">
+                    <h5 class="mr-auto">{{this.title}} </h5>
+
+            </div>
+        </div>
+
+    </div>
+    {{/each}}
+</div>
+<div class="for-group">
