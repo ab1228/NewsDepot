@@ -8,7 +8,7 @@ var exphbs = require('express-handlebars');
 var mongoose = require("mongoose");
 
 var MONGODB_URI = process.env.URI || "mongodb://localhost/headlines"
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI);
 
 // INTIALIZE EXPRESS
 var app = express();
