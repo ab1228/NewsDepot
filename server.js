@@ -3,7 +3,7 @@
 // DEPENDDENCIES
 require('dotenv').config()
 var express = require("express");
-// var logger = require("morgan");
+var logger = require("morgan");
 var exphbs = require('express-handlebars');
 var mongoose = require("mongoose");
 
@@ -15,7 +15,7 @@ var app = express();
 // STATIC FOLDER
 app.use(express.static("public"));
 
-// app.use(logger("dev"));
+app.use(logger("dev"));
 //MIDDELWARE
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

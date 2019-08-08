@@ -15,6 +15,10 @@ var ArticleSchema = new Schema({
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        unique: true
+    },
 
     note: {
         type: Schema.Types.ObjectId,

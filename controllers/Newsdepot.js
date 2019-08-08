@@ -6,7 +6,7 @@ var cheerio = require("cheerio");
 
 
 // REQUIRING MODELS
-var db = require('../models');
+var db = require('../models/Index');
 
 // MAIN ROUTE
 router.get("/", function (req, res) {
@@ -31,6 +31,9 @@ router.get("/scrape", function (req, res) {
       result.link = $(this)
         .children("a")
         .attr("href");
+      result.description = $(this)
+        .children("a")
+        .text();
 
 
       db.Article.create(result)
@@ -82,7 +85,7 @@ router.get('/clear', function (req, res) {
       res.json(err);
     });
 });
-// DELETING AN ARTICLE BY ID
+// DELETING AND ARTICLE BY ID
 router.post('/articles/delete/:id', function (req, res) {
   db.Article.findOneAndUpdate(
     { _id: req.params.id },
